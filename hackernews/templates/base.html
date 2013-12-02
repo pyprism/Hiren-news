@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<html>
+<head>
+    <title>Hiren News!</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/master.css" %}">
+</head>
+<body>
+    <div id="content">
+        <div id="header">
+            <div id="site-logo">N</div>
+            <div id="site-title"><h1>Tuts+ News</h1></div>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
