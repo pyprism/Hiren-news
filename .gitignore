@@ -2,3 +2,7 @@
 *.pyc
 .idea/
 vendor/
+bin/
+include/
+lib/
+local/
