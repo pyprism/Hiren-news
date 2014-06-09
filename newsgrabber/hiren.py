@@ -16,15 +16,12 @@ def news():
         if not r.get(story.title):
             r.setex(story.title, 100, "Hi hiren ! :D")
             hiren.append((story.title, story.link, story.comments_link))
-        else:
-            pass
     nisha['hiren'] = hiren
     return nisha
 
 
 @app.route('/')
 def index():
-    #return "X"
     return jsonify(news())
 
 
