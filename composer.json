@@ -2,6 +2,6 @@
     "require": {
         "slim/slim": "2.*",
         "guzzlehttp/guzzle": "4.*",
-        "predis/predis": "0.8.*"
+        "facebook/php-sdk-v4" : "4.0.*"
     }
 }

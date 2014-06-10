@@ -3,23 +3,69 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "50ac9b8bafd431ed3337a4ac6fe5bd68",
+    "hash": "42ee7c7be6a9a41f5b04819cfd3bce20",
     "packages": [
         {
-            "name": "guzzlehttp/guzzle",
-            "version": "4.0.2",
+            "name": "facebook/php-sdk-v4",
+            "version": "4.0.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "40db53833aaea528347994acd4578d7b9b2211ee"
+                "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
+                "reference": "b576c1e1e7df81b03480b73402176ef64973584d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/40db53833aaea528347994acd4578d7b9b2211ee",
-                "reference": "40db53833aaea528347994acd4578d7b9b2211ee",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/b576c1e1e7df81b03480b73402176ef64973584d",
+                "reference": "b576c1e1e7df81b03480b73402176ef64973584d",
                 "shasum": ""
             },
             "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk-v4/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/facebook-php-sdk-v4",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2014-05-31 19:20:28"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
+                "reference": "577a69ff7d0a24e9576a2885c3a7afbaadd51ec1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
                 "guzzlehttp/streams": "~1.0",
                 "php": ">=5.4.0"
             },
@@ -28,10 +74,13 @@
                 "phpunit/phpunit": "~4.0",
                 "psr/log": "~1.0"
             },
+            "suggest": {
+                "ext-curl": "Guzzle will use specific adapters if cURL is present"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.0.x-dev"
+                    "dev-master": "4.1.x-dev"
                 }
             },
             "autoload": {
@@ -64,7 +113,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-04-16 17:33:22"
+            "time": "2014-06-08 20:00:20"
         },
         {
             "name": "guzzlehttp/streams",
