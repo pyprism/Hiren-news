@@ -1,9 +1,0 @@
-{
-    "require": {
-        "slim/slim": "2.*",
-        "guzzlehttp/guzzle": "4.*",
-        "facebook/php-sdk-v4" : "4.0.*",
-        "nesbot/Carbon": "*",
-        "symfony/var-dumper": "~2.6"
-    }
-}
