@@ -6,3 +6,5 @@ bin/
 include/
 lib/
 local/
+.env
+config.local.json
