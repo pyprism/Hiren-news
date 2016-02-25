@@ -11,8 +11,7 @@ def api():
     auth.set_access_token(JSON_DATA['access_token'], JSON_DATA['access_token_secret'])
     api = tweepy.API(auth)
     for i in rss.rss():
-        result = api.update_status(i)
-        print(result)
+        api.update_status(i)
 
 
 api()
