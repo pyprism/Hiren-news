@@ -3,7 +3,7 @@ from hiren import db
 
 class Content(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    comments_url = db.Column(db.String(300), unique=True)
+    comments_url = db.Column(db.String(200), unique=True)
 
     def __init__(self, comments_url):
         self.comments_url = comments_url
