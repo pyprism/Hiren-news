@@ -1,6 +1,6 @@
 from flask import Flask
-from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
+from db import models
 import os
 import json
 
@@ -14,7 +14,6 @@ except FileNotFoundError:
         JSON_DATA = json.load(f)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + JSON_DATA['db_user'] + ':'\
                                         + JSON_DATA['db_pass'] + '@localhost/' + JSON_DATA['db_name']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -23,7 +22,8 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    row_count = models.Content.query.count()
+    return "Number of rows: " + str(row_count)
 
 if __name__ == '__main__':
     app.run(debug=os.environ.get('DEBUG', False))
