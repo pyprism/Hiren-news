@@ -1,4 +1,10 @@
-from hiren import JSON_DATA
+import django
+import os
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hiren.settings")
+django.setup()
+
+from hiren.settings import JSON_DATA
 from hn import rss
 import tweepy
 

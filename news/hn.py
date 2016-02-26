@@ -1,6 +1,11 @@
 import feedparser
-from db.models import Content
-from hiren import db
+import django
+import os
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hiren.settings")
+django.setup()
+
+from news.models import Bunny
 
 
 def rss():
@@ -11,11 +16,8 @@ def rss():
     feed = []
     bunny = feedparser.parse('https://news.ycombinator.com/rss')
     for i in bunny.entries:
-        duplicate = Content.query.filter_by(comments_url=i.comments).first()
-        if duplicate is None:
+        duplicate = Bunny.objects.filter(comment_url=i.comments)
+        if duplicate.exists() is False:
             feed.append(i.title_detail.value + ' : ' + i.link + " " + "Comments: " + i.comments)
-            hiren = Content(i.comments)
-            db.session.add(hiren)
-            db.session.commit()
+            Bunny(comment_url=i.comments).save()
     return feed
-
