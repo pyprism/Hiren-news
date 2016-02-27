@@ -7,8 +7,10 @@ django.setup()
 from hiren.settings import JSON_DATA
 from hn import rss
 import tweepy
+from celery import shared_task
 
 
+@shared_task()
 def api():
     """
     Post status(s) to twitter
@@ -19,5 +21,3 @@ def api():
     for i in rss.rss():
         api.update_status(i)
 
-
-api()
