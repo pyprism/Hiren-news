@@ -152,10 +152,11 @@ BROKER_URL = 'django://'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_IMPORTS = ["news.twitter.api"]
 
 CELERYBEAT_SCHEDULE = {
     'run-every-5-minutes': {
-        'task': 'news.twitter.api',
-        'schedule': crontab(minute='*/5'),
+        'task': 'news.tasks.run',
+        'schedule': crontab(minute='*/1'),
     },
 }
