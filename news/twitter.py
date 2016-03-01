@@ -15,7 +15,7 @@ def api():
     """
     auth = tweepy.OAuthHandler(JSON_DATA['consumer_key'], JSON_DATA['consumer_secret'])
     auth.set_access_token(JSON_DATA['access_token'], JSON_DATA['access_token_secret'])
-    api = tweepy.API(auth)
+    api = tweepy.API(auth, wait_on_rate_limit=True)
     for i in rss():
         api.update_status(i)
 
