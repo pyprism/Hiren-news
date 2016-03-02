@@ -147,6 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR + '/' + "static"
 
 BROKER_URL = 'django://'
 CELERY_ACCEPT_CONTENT = ['application/json']
@@ -157,6 +158,6 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERYBEAT_SCHEDULE = {
     'run-every-5-minutes': {
         'task': 'news.tasks.run',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute='*/8'),
     },
 }
