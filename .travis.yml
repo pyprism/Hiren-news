@@ -1,0 +1,25 @@
+language: python
+python:
+  - "3.5"
+
+cache: pip
+
+
+services:
+  - mysql
+
+install:
+  - pip install -r requirements.txt --quiet
+  - pip install coveralls
+
+
+before_script:
+  - mysql -e 'create database travis;'
+
+script:
+  - python manage.py migrate
+  - python manage.py test
+  - coverage run --source=news manage.py test news
+
+after_success:
+  - coveralls
