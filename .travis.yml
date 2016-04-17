@@ -10,7 +10,7 @@ services:
 
 install:
   - pip install -r requirements.txt --quiet
-  - pip install coveralls
+  - pip install codecov
 
 
 #before_script:
@@ -22,4 +22,4 @@ script:
   - coverage run --source=news manage.py test news
 
 after_success:
-  - coveralls
+  - codecov
