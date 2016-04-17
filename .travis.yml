@@ -13,8 +13,8 @@ install:
   - pip install coveralls
 
 
-before_script:
-  - mysql -e 'create database travis;'
+#before_script:
+#  - mysql -e 'create database travis;'
 
 script:
   - python manage.py migrate
