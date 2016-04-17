@@ -1,5 +1,6 @@
 from django.test import TestCase, TransactionTestCase
 from .models import Bunny, Tag
+from django.test import Client
 
 
 class ModelTest(TransactionTestCase):
@@ -33,3 +34,18 @@ class ModelTest(TransactionTestCase):
 
         bunny_item = Bunny.objects.all()
         self.assertEqual(bunny_item.count(), 1)
+
+
+class TestViews(TestCase):
+
+    def setUp(self):
+        Bunny.objects.create(comment_url='https://news.ycombinator.com/item?id=11512455')
+        Bunny.objects.create(comment_url='https://news.ycombinator.com/item?id=11511062')
+        Tag.objects.create(name='Django')
+        Tag.objects.create(name='python')
+        self.c = Client()
+
+    def test_index(self):
+        res = self.client.get('/')
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(res.content, str.encode('Number of Bunny(s): ' + str(2)))
