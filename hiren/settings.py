@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'hiren.wsgi.application'
 if 'TRAVIS' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE':   'django.db.backends.postgresql_psycopg2',
-            'NAME':     'travisci',
-            'USER':     'postgres',
+            'ENGINE':   'django.db.backends.mysql',
+            'NAME':     'travis',
+            'USER':     'travis',
             'PASSWORD': '',
             'HOST':     'localhost',
             'PORT':     '',

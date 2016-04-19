@@ -8,3 +8,5 @@ lib/
 local/
 .env
 config.local.json
+celerybeat-schedule
+static/admin/

@@ -6,5 +6,6 @@
   "db_name": "",
   "db_user": "",
   "db_pass": "",
-  "secret_key": ""
+  "secret_key": "",
+  "bitly_access_token": ""
 }
