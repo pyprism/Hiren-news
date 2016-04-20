@@ -34,7 +34,7 @@ def rss():
         if duplicate.exists() is False:
             _hash = ''
             for bunny in tags:    # search for predefined value in post title
-                if re.match('\\b' + bunny.name + '\\b', i.title_detail.value, re.I):
+                if re.findall('\\b' + bunny.name + '\\b', i.title_detail.value, re.I):
                     _hash = _hash + ' #' + bunny.name
             if len(_hash):   # if _hash has value append to end of the post
                 feed.append(i.title_detail.value + ' : ' + bitly(i.link) + _hash + " " + "Comments: " + bitly(i.comments))
