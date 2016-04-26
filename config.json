@@ -7,5 +7,7 @@
   "db_user": "",
   "db_pass": "",
   "secret_key": "",
-  "bitly_access_token": ""
+  "bitly_access_token": "",
+  "fb_page": "",
+  "fb_page_token": ""
 }
