@@ -1,8 +1,7 @@
 from celery import shared_task
-from news.posts import facebook_api, twitter_api
+from news.posts import posts
 
 
 @shared_task
 def run():
-    twitter_api()
-    facebook_api()
+    posts()
