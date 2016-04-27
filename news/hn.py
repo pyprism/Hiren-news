@@ -33,12 +33,19 @@ def rss():
         duplicate = Bunny.objects.filter(comment_url=i.comments)
         if duplicate.exists() is False:
             _hash = ''
+            post = {'message': '', 'link': ''}
             for bunny in tags:    # search for predefined value in post title
                 if re.findall('\\b' + bunny.name + '\\b', i.title_detail.value, re.I):
                     _hash = _hash + ' #' + bunny.name
             if len(_hash):   # if _hash has value append to end of the post
-                feed.append(i.title_detail.value + ' : ' + bitly(i.link) + _hash + " " + "Comments: " + bitly(i.comments))
+                link = bitly(i.link)
+                post['message'] = i.title_detail.value + ' : ' + link + _hash + " " + "Comments: " + bitly(i.comments)
+                post['link'] = link
+                feed.append(post)
             else:
-                feed.append(i.title_detail.value + ' : ' + bitly(i.link) + " " + "Comments: " + bitly(i.comments))
+                link = bitly(i.link)
+                post['message'] = i.title_detail.value + ' : ' + link + " " + "Comments: " + bitly(i.comments)
+                post['link'] = link
+                feed.append(post)
             Bunny(comment_url=i.comments).save()
     return feed
