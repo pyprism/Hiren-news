@@ -28,8 +28,8 @@ def posts():
             print(e, i)
 
         try:
-            res = graph.put_object(JSON_DATA['fb_page'], 'feed', message=i['message'], link=i['link'])
+            graph.put_object(JSON_DATA['fb_page'], 'feed', message=i['message'], link=i['link'])
         except Exception as e:
-            print(res, e)
+            print(e)
 
 
