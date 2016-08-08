@@ -15,5 +15,5 @@ requests-oauthlib==0.6.2
 six==1.10.0
 tweepy==3.5.0
 uWSGI==2.0.13.1
-facebook-sdk==1.0.0
+facebook-sdk==2.0.0
 redis==2.10.5
