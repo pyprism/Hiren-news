@@ -5,16 +5,16 @@ python:
 cache: pip
 
 
-services:
-  - mysql
+addons:
+postgresql: "9.3"
 
 install:
   - pip install -r requirements.txt --quiet
   - pip install codecov
 
 
-#before_script:
-#  - mysql -e 'create database travis;'
+before_script:
+- psql -c "CREATE DATABASE travisci;" -U postgres
 
 script:
   - python manage.py migrate
