@@ -46,11 +46,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_q',
     'news',
-    'kombu.transport.django',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'hiren.wsgi.application'
 if 'TRAVIS' in os.environ:
     DATABASES = {
         'default': {
-            'ENGINE':   'django.db.backends.mysql',
-            'NAME':     'travis',
-            'USER':     'travis',
+            'ENGINE':   'django.db.backends.postgresql_psycopg2',
+            'NAME':     'travisci',
+            'USER':     'postgres',
             'PASSWORD': '',
             'HOST':     'localhost',
             'PORT':     '',
@@ -100,13 +100,14 @@ else:
     DATABASES = {
         'default': {
             'NAME': JSON_DATA['db_name'],
-            'ENGINE': 'django.db.backends.mysql',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'USER': JSON_DATA['db_user'],
-            'PASSWORD': JSON_DATA['db_pass'],
+            'PASSWORD': JSON_DATA['db_password'],
             'HOST': 'localhost',
             'PORT': '',
+            'CONN_MAX_AGE': 600,
             }
-    }
+}
 
 
 
@@ -149,15 +150,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + '/' + "static"
 
-BROKER_URL = 'django://'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-# CELERY_IMPORTS = ["news.twitter.api"]
-
-CELERYBEAT_SCHEDULE = {
-    'run-every-5-minutes': {
-        'task': 'news.tasks.run',
-        'schedule': crontab(minute='*/8'),
-    },
+Q_CLUSTER = {
+    'name': 'DjangORM',
+    'workers': 1,
+    'retry': 120,
+    'queue_limit': 10,
+    'bulk': 10,
+    'orm': 'default'
 }
