@@ -5,9 +5,8 @@
   "access_token_secret": "",
   "db_name": "",
   "db_user": "",
-  "db_pass": "",
+  "db_password": "",
   "secret_key": "",
-  "bitly_access_token": "",
   "fb_page": "",
   "fb_page_token": ""
 }
