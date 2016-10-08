@@ -1,0 +1,8 @@
+[Unit]
+Description=uWSGI instance to serve Hiren-news
+
+[Service]
+ExecStart=/bin/bash -c 'su prism; cd /home/prism/prod/Hiren-news; source .env/bin/activate; uwsgi --ini hiren.ini'
+
+[Install]
+WantedBy=multi-user.target
