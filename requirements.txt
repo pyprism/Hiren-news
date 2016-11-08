@@ -1,6 +1,6 @@
 arrow==0.8.0
 blessed==1.14.1
-Django==1.10.2
+Django==1.10.3
 django-picklefield==0.3.2
 django-q==0.7.18
 facebook-sdk==2.0.0
