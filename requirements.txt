@@ -5,7 +5,7 @@ django-picklefield==0.3.2
 django-q==0.7.18
 facebook-sdk==2.0.0
 feedparser==5.2.1
-future==0.15.2
+future==0.16.0
 oauthlib==2.0.0
 psycopg2==2.6.2
 python-dateutil==2.5.3
