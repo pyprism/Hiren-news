@@ -1,4 +1,4 @@
-arrow==0.9.0
+arrow==0.10.0
 blessed==1.14.1
 Django==1.10.3
 django-picklefield==0.3.2
