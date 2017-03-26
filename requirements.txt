@@ -1,5 +1,5 @@
 arrow==0.10.0
-blessed==1.14.1
+blessed==1.14.2
 Django==1.10.6
 django-picklefield==0.3.2
 django-q==0.7.18
