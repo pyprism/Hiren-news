@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from news.views import index
+from news.views import index, scheduler
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^scheduler/$', scheduler),
     url(r'^', index),
 ]
