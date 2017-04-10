@@ -10,3 +10,4 @@ local/
 config.local.json
 celerybeat-schedule
 static/admin/
+scheduler
