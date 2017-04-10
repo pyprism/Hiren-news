@@ -2,31 +2,17 @@ package main
 
 import (
 	"fmt"
-	//"io/ioutil"
 	"os"
 	"encoding/json"
+	"github.com/parnurzeal/gorequest"
+	"github.com/robfig/cron"
 )
 
 type Configuration struct {
-	consumer_key   string
-	consumer_secret   string
-	access_token   string
-	access_token_secret   string
-	db_name   string
-	db_user   string
-	db_password   string
-	secret_key   string
-	fb_page   string
-	fb_page_token   string
-	domain   string
+	Domain   string
 }
 
-func main() {
-	//data, err := ioutil.ReadFile("./config.json")
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
+func req() {
 	file, err := os.Open("./config.json")
 	if err != nil {
 		fmt.Println(err)
@@ -39,6 +25,14 @@ func main() {
 		fmt.Println("error:", err)
 		return
 	}
-	fmt.Println(configuration.domain)
-	//fmt.Print("data:  ",string(data))
+	request := gorequest.New()
+	request.Get(configuration.Domain).End()
+}
+
+func main() {
+	c := cron.New()
+	c.AddFunc("@every 8m", req)
+	c.Start()
+	select {}
+
 }
