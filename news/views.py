@@ -9,7 +9,7 @@ def index(request):
     :param request:
     :return:
     """
-    return HttpResponse('Number of Bunny(s): ' + str(Bunny.objects.all().count()))
+    return HttpResponse('Number of Bunny(s): ' + str(Bunny.objects.count()))
 
 def scheduler(request):
     """
