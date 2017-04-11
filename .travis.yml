@@ -17,7 +17,6 @@ before_script:
 - psql -c "CREATE DATABASE travisci;" -U postgres
 
 script:
-  - python manage.py migrate
   - python manage.py test
   - coverage run --source=news manage.py test news
 
