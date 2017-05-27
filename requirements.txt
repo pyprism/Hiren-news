@@ -9,7 +9,7 @@ future==0.16.0
 oauthlib==2.0.2
 psycopg2==2.7.1
 python-dateutil==2.6.0
-requests==2.16.0
+requests==2.16.1
 requests-oauthlib==0.8.0
 six==1.10.0
 tweepy==3.5.0
