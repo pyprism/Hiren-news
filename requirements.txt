@@ -12,6 +12,6 @@ python-dateutil==2.6.1
 requests==2.18.4
 requests-oauthlib==0.8.0
 six==1.11.0
+uWSGI==2.0.17
 tweepy==3.6.0
-uWSGI==2.0.16
 wcwidth==0.1.7
