@@ -2,7 +2,7 @@ arrow==0.12.1
 blessed==1.14.2
 Django==2.0
 django-picklefield==1.0.0
-django-q==0.9.2
+django-q==0.9.3
 facebook-sdk==2.0.0
 feedparser==5.2.1
 future==0.16.0
