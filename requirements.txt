@@ -7,7 +7,7 @@ facebook-sdk==2.0.0
 feedparser==5.2.1
 future==0.16.0
 oauthlib==2.0.7
-psycopg2==2.7.4
+psycopg2==2.7.5
 python-dateutil==2.7.2
 requests==2.18.4
 requests-oauthlib==0.8.0
