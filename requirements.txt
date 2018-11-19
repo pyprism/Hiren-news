@@ -8,7 +8,7 @@ feedparser==5.2.1
 future==0.16.0
 oauthlib==2.1.0
 psycopg2==2.7.6.1
-python-dateutil==2.7.3
+python-dateutil==2.7.5
 requests-oauthlib==1.0.0
 requests==2.20.1
 six==1.11.0
