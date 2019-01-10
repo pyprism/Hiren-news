@@ -10,7 +10,7 @@ oauthlib==3.0.0
 psycopg2==2.7.6.1
 python-dateutil==2.7.5
 requests-oauthlib==1.0.0
-requests==2.20.1
+requests==2.21.0
 six==1.11.0
 uWSGI==2.0.17.1
 tweepy==3.6.0
