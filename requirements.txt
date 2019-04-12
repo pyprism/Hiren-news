@@ -1,4 +1,4 @@
-arrow==0.13.0
+arrow==0.13.1
 blessed==1.15.0
 Django==2.2
 django-q==1.0.1
