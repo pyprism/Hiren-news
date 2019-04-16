@@ -11,3 +11,4 @@ config.local.json
 celerybeat-schedule
 static/admin/
 scheduler
+logs/*.log*
