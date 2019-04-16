@@ -8,6 +8,5 @@
   "db_password": "",
   "secret_key": "",
   "fb_page": "",
-  "fb_page_token": "",
-  "domain": ""
+  "fb_page_token": ""
 }
