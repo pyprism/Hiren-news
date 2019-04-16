@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_q',
     'news',
 ]
 
@@ -146,13 +145,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR + '/' + "static"
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+)
 
-Q_CLUSTER = {
-    'name': 'DjangORM',
-    'workers': 1,
-    'retry': 120,
-    'queue_limit': 10,
-    'bulk': 10,
-    'orm': 'default'
-}
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
