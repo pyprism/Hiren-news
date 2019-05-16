@@ -8,7 +8,7 @@ oauthlib==3.0.1
 psycopg2-binary==2.8.2
 PySocks==1.6.8
 pytz==2019.1
-requests==2.21.0
+requests==2.22.0
 requests-oauthlib==1.2.0
 six==1.12.0
 sqlparse==0.3.0
