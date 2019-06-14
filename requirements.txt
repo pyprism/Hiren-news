@@ -5,7 +5,7 @@ facebook-sdk==3.1.0
 feedparser==5.2.1
 idna==2.8
 oauthlib==3.0.1
-psycopg2-binary==2.8.2
+psycopg2-binary==2.8.3
 PySocks==1.6.8
 pytz==2019.1
 requests==2.21.0
