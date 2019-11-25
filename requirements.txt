@@ -6,7 +6,7 @@ feedparser==5.2.1
 idna==2.8
 oauthlib==3.0.1
 psycopg2-binary==2.8.4
-PySocks==1.6.8
+PySocks==1.7.1
 pytz==2019.1
 requests==2.22.0
 requests-oauthlib==1.2.0
