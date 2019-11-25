@@ -8,6 +8,7 @@ django.setup()
 
 from news.models import Bunny, Tag
 from datetime import datetime, timedelta
+from django.utils import timezone
 
 
 def rss():
@@ -16,7 +17,8 @@ def rss():
     :return: List of posts
     """
     feed = []
-    time_threshold = datetime.now() - timedelta(hours=35)
+    # time_threshold = datetime.now() - timedelta(hours=35)
+    time_threshold = timezone.now() - timedelta(hours=35)
     tags = Tag.objects.all()
     bunny = feedparser.parse('https://news.ycombinator.com/rss')
     for i in bunny.entries:
