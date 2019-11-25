@@ -1,12 +1,12 @@
 language: python
 python:
-  - "3.5"
+  - "3.7"
 
 cache: pip
 
 
 addons:
-postgresql: "9.3"
+postgresql: "10"
 
 install:
   - pip install -r requirements.txt --quiet
