@@ -6,6 +6,7 @@
   "db_name": "",
   "db_user": "",
   "db_password": "",
+  "sentry_dsn": "",
   "secret_key": "",
   "fb_page": "",
   "fb_page_token": ""
