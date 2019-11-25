@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.urls import path, re_path
 from django.contrib import admin
-from news.views import index, scheduler
+from news.views import index, scheduler, cleaner
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     path('scheduler/', scheduler),
+    path(r'cleaner/', cleaner),
     path(r'', index),
 ]
