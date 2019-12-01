@@ -18,7 +18,7 @@ def rss():
     """
     feed = []
     # time_threshold = datetime.now() - timedelta(hours=35)
-    time_threshold = timezone.now() - timedelta(hours=35)
+    time_threshold = timezone.now() - timedelta(hours=100)
     tags = Tag.objects.all()
     bunny = feedparser.parse('https://news.ycombinator.com/rss')
     for i in bunny.entries:
