@@ -12,3 +12,4 @@ celerybeat-schedule
 static/admin/
 scheduler
 logs/*.log*
+.vscode
