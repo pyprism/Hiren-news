@@ -1,6 +1,6 @@
 Django==3.1.1
 facebook-sdk==3.1.0
-feedparser==5.2.1
+feedparser==6.0.2
 psycopg2-binary==2.8.6
 tweepy==3.9.0
 uWSGI==2.0.19.1
