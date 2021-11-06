@@ -102,8 +102,8 @@ else:
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'USER': JSON_DATA['db_user'],
             'PASSWORD': JSON_DATA['db_password'],
-            'HOST': 'localhost',
-            'PORT': '',
+            'HOST': JSON_DATA['db_host'],
+            'PORT': JSON_DATA['db_port'],
             'CONN_MAX_AGE': 600,
             }
 }
@@ -237,3 +237,6 @@ LOGGING = {
         # },
     }
 }
+
+# django 3.2+ autofield migration
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
