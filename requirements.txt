@@ -4,4 +4,4 @@ feedparser==6.0.8
 psycopg2-binary==2.8.6
 tweepy==4.3.0
 uWSGI==2.0.20
-sentry-sdk==1.4.3
+sentry-sdk==1.5.4
