@@ -3,5 +3,5 @@ facebook-sdk==3.1.0
 feedparser==6.0.10
 psycopg2-binary==2.9.4
 tweepy==4.12.1
-uWSGI==2.0.20
+uWSGI==2.0.21
 sentry-sdk==1.11.1
