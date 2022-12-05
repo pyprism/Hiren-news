@@ -17,9 +17,6 @@ def posts():
     graph = facebook.GraphAPI(access_token=JSON_DATA['fb_page_token'], version='3.1')  # access_token= http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
 
     for i in rss():
-        try:
-            graph.put_object(JSON_DATA['fb_page'], 'feed', message=i['message'], link=i['link'])
-        except Exception as e:
-            print(e)
+        graph.put_object(JSON_DATA['fb_page'], 'feed', message=i['message'], link=i['link'])
 
 
