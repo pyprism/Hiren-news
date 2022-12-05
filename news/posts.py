@@ -6,7 +6,6 @@ django.setup()
 
 from hiren.settings import JSON_DATA
 from .hn import rss
-import tweepy
 import facebook
 
 
