@@ -1,4 +1,4 @@
-Django==4.2.1
+Django==4.2.4
 facebook-sdk==3.1.0
 feedparser==6.0.10
 psycopg2-binary==2.9.6
