@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from news.models import Bunny
+from .hn import rss
 from .posts import posts
 from datetime import datetime, timedelta
 from .models import Bunny
@@ -29,7 +30,7 @@ def scrapper(request):
     :param request:
     :return:
     """
-    posts()
+    rss()
     return HttpResponse("Hello Hiren :D !")
 
 
