@@ -1,5 +1,5 @@
 Django==4.2.4
-requests=2.31.0
+requests==2.31.0
 feedparser==6.0.10
 psycopg2-binary==2.9.7
 uWSGI==2.0.22
