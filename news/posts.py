@@ -22,7 +22,7 @@ def posts():
         print(i.title)
         response = requests.post(f"https://graph.facebook.com/{JSON_DATA['fb_page']}/feed?message={i.title}&link={i.main_url}&access_token={JSON_DATA['fb_page_token']}")
         if response.status_code == 200:
-            Bunny.objects.filter(comment_url=i.comment_url).update(posted=True)
+            Bunny.objects.filter(main_url=i.main_url).update(posted=True)
         else:
             raise Exception("Error while posting to fb")
 
