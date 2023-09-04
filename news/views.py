@@ -14,7 +14,16 @@ def index(request):
     return HttpResponse('Number of Bunny(s): ' + str(Bunny.objects.count()))
 
 
-def scheduler(request):
+def send_post(request):
+    """
+    Post status(s) to fb
+    :return:
+    """
+    posts()
+    return HttpResponse("Hello Hiren :D !")
+
+
+def scrapper(request):
     """
     cron based job runner ! :/
     :param request:
