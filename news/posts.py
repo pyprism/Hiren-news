@@ -17,6 +17,7 @@ def posts():
     """
     Post status(s) to fb
     get permanent access_token= http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
+    updated info: https://developers.facebook.com/docs/pages/access-tokens
     :return:
     """
     hn_posts = Bunny.objects.filter(posted=False)[:8]
