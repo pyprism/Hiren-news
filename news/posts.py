@@ -1,3 +1,5 @@
+import urllib
+
 import django
 import os
 
@@ -19,10 +21,9 @@ def posts():
     """
     hn_posts = Bunny.objects.filter(posted=False)[:5]
     for i in hn_posts:
-        print(i.title)
-        response = requests.post(f"https://graph.facebook.com/{JSON_DATA['fb_page']}/feed?message={i.title}&link={i.main_url}&access_token={JSON_DATA['fb_page_token']}")
+        url = f"https://graph.facebook.com/{JSON_DATA['fb_page']}/feed?message={urllib.parse.quote(i.title)}&link={i.main_url}&access_token={JSON_DATA['fb_page_token']}"
+        response = requests.post(url)
         print(response.status_code)
-        print(response.content)
         if response.status_code == 200:
             Bunny.objects.filter(main_url=i.main_url).update(posted=True)
         else:
