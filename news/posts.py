@@ -19,7 +19,8 @@ def posts():
     """
     hn_posts = Bunny.objects.filter(posted=False)[:5]
     for i in hn_posts:
-        response = requests.post(f"https://graph.facebook.com/{JSON_DATA['fb_page']}/feed?message={i['message']}&link={i['link']}&access_token={JSON_DATA['fb_page_token']}")
+        print(i.title)
+        response = requests.post(f"https://graph.facebook.com/{JSON_DATA['fb_page']}/feed?message={i.title}&link={i.main_url}&access_token={JSON_DATA['fb_page_token']}")
         if response.status_code == 200:
             Bunny.objects.filter(comment_url=i.comment_url).update(posted=True)
         else:
