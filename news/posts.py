@@ -19,7 +19,7 @@ def posts():
     get permanent access_token= http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
     :return:
     """
-    hn_posts = Bunny.objects.filter(posted=False)[:5]
+    hn_posts = Bunny.objects.filter(posted=False)[:8]
     for i in hn_posts:
         url = f"https://graph.facebook.com/{JSON_DATA['fb_page']}/feed?message={urllib.parse.quote(i.title)}&link={i.main_url}&access_token={JSON_DATA['fb_page_token']}"
         response = requests.post(url)
