@@ -16,25 +16,19 @@ def rss():
     Call hacker news api
     :return: List of posts
     """
-    feed = []
     # time_threshold = datetime.now() - timedelta(hours=35)
     time_threshold = timezone.now() - timedelta(hours=100)
     tags = Tag.objects.all()
     bunny = feedparser.parse('https://news.ycombinator.com/rss')
     for i in bunny.entries:
-        if Bunny.objects.filter(comment_url=i.comments, time__gt=time_threshold).exists() is False:
+        if not Bunny.objects.filter(main_url=i.link).exists():
             _hash = ''
-            post = {'message': '', 'link': ''}
             for bunny in tags:    # search for predefined value in post title
                 if re.findall('\\b' + bunny.name + '\\b', i.title_detail.value, re.I):
                     _hash = _hash + ' #' + bunny.name
             if len(_hash):   # if _hash has value append to end of the post
-                post['message'] = i.title_detail.value + ' : ' + i.link + _hash + " " + "Comments: " + i.comments
-                post['link'] = i.link
-                feed.append(post)
+                title = i.title_detail.value + ' : ' + i.link + _hash + " " + "Comments: " + i.comments
+                Bunny(main_url=i.link, title=title).save()
             else:
-                post['message'] = i.title_detail.value + ' : ' + i.link + " " + "Comments: " + i.comments
-                post['link'] = i.link
-                feed.append(post)
-            Bunny(comment_url=i.comments).save()
-    return feed
+                title = i.title_detail.value + ' : ' + i.link + " " + "Comments: " + i.comments
+                Bunny(main_url=i.link, title=title).save()
