@@ -155,6 +155,7 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+STATIC_ROOT  = os.path.join(BASE_DIR, 'static')
 
 # sentry
 sentry_sdk.init(
