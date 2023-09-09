@@ -1,3 +1,4 @@
+import logging
 import urllib
 
 import django
@@ -12,6 +13,7 @@ from hiren.settings import JSON_DATA
 from .hn import rss
 import requests
 
+logger = logging.getLogger(__name__)
 
 def posts():
     """
@@ -20,14 +22,18 @@ def posts():
     updated info: https://developers.facebook.com/docs/pages/access-tokens
     :return:
     """
-    hn_posts = Bunny.objects.filter(posted=False)[:8]
+    hn_posts = Bunny.objects.filter(posted=False, permission_error=False)[:8]
     for i in hn_posts:
         url = f"https://graph.facebook.com/{JSON_DATA['fb_page']}/feed?message={urllib.parse.quote(i.title)}&link={i.main_url}&access_token={JSON_DATA['fb_page_token']}"
-        response = requests.post(url)
-        print(response.status_code)
+        response = requests.post(url, timeout=50)
+
         if response.status_code == 200:
             Bunny.objects.filter(main_url=i.main_url).update(posted=True)
+        elif response.status_code == 403:
+            Bunny.objects.filter(main_url=i.main_url).update(permission_error=True)
         else:
+            logger.warning(f"Error while posting to fb; status code: {response.status_code}")
+            logger.error(f"Error while posting to fb: {response.text}")
             raise Exception("Error while posting to fb")
 
 
