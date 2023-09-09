@@ -4,7 +4,7 @@ from news.models import Bunny, Tag
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ['id', 'main_url', 'time', 'posted', 'title']
+    list_display = ['id', 'main_url', 'time', 'posted', 'title', 'permission_error']
     ordering = ['id']
 
 
