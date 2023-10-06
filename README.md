@@ -1,6 +1,6 @@
 # Hiren-news 
 
-Backend for facebook's page [Hacker news page](https://www.facebook.com/hn.hiren.news) .
+Backend for facebook page [Hacker news page](https://www.facebook.com/hn.hiren.news) .
 
 #### Cronjob
 ```
