@@ -1,6 +1,6 @@
 Django==4.2.6
 requests==2.31.0
 feedparser==6.0.10
-psycopg2-binary==2.9.8
+psycopg2-binary==2.9.9
 uWSGI==2.0.22
 sentry-sdk==1.32.0
