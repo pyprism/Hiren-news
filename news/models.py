@@ -3,7 +3,7 @@ from django.db import models
 
 class Bunny(models.Model):
     title = models.TextField()
-    main_url = models.URLField(unique=True)
+    main_url = models.TextField(unique=True, max_length=2000)
     time = models.DateTimeField(auto_now_add=True)   # save time when post is saved
     posted = models.BooleanField(default=False)
     permission_error = models.BooleanField(default=False) # fb blocked this post , 403 error
