@@ -31,6 +31,15 @@ def posts():
             Bunny.objects.filter(main_url=i.main_url).update(posted=True)
         elif response.status_code == 403:
             Bunny.objects.filter(main_url=i.main_url).update(permission_error=True)
+        elif response.status_code == 400:
+            error_message = "Your message couldn't be sent because it includes content that other people on Facebook have reported as abusive."
+            resp = response.json()
+            if resp["error"]["message"] == error_message:
+                Bunny.objects.filter(main_url=i.main_url).update(permission_error=True)
+            else:
+                logger.warning(f"Error while posting to fb; status code: {response.status_code}")
+                logger.error(f"Error while posting to fb: {response.text}")
+                raise Exception("Error while posting to fb")
         else:
             logger.warning(f"Error while posting to fb; status code: {response.status_code}")
             logger.error(f"Error while posting to fb: {response.text}")
