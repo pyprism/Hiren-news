@@ -1,4 +1,4 @@
-Django==4.2.7
+Django==5.0
 requests==2.31.0
 feedparser==6.0.10
 psycopg2-binary==2.9.9
